@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7EA073F71A678C1400B217AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA073F61A678C1400B217AA /* main.m */; };
+		7EA073FA1A678C1400B217AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA073F91A678C1400B217AA /* AppDelegate.m */; };
+		7EA073FD1A678C1400B217AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA073FC1A678C1400B217AA /* ViewController.m */; };
+		7EA074001A678C1400B217AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EA073FE1A678C1400B217AA /* Main.storyboard */; };
+		7EA074021A678C1400B217AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EA074011A678C1400B217AA /* Images.xcassets */; };
+		7EA074051A678C1400B217AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA074031A678C1400B217AA /* LaunchScreen.xib */; };
+		7EA074111A678C1400B217AA /* HealthTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA074101A678C1400B217AA /* HealthTalkTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7EA0740B1A678C1400B217AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EA073E91A678C1400B217AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EA073F01A678C1400B217AA;
+			remoteInfo = HealthTalk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7EA073F11A678C1400B217AA /* HealthTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EA073F51A678C1400B217AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EA073F61A678C1400B217AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7EA073F81A678C1400B217AA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7EA073F91A678C1400B217AA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7EA073FB1A678C1400B217AA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7EA073FC1A678C1400B217AA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7EA073FF1A678C1400B217AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7EA074011A678C1400B217AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7EA074041A678C1400B217AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7EA0740A1A678C1400B217AA /* HealthTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EA0740F1A678C1400B217AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EA074101A678C1400B217AA /* HealthTalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthTalkTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EA073EE1A678C1400B217AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EA074071A678C1400B217AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7EA073E81A678C1400B217AA = {
+			isa = PBXGroup;
+			children = (
+				7EA073F31A678C1400B217AA /* HealthTalk */,
+				7EA0740D1A678C1400B217AA /* HealthTalkTests */,
+				7EA073F21A678C1400B217AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7EA073F21A678C1400B217AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EA073F11A678C1400B217AA /* HealthTalk.app */,
+				7EA0740A1A678C1400B217AA /* HealthTalkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EA073F31A678C1400B217AA /* HealthTalk */ = {
+			isa = PBXGroup;
+			children = (
+				7EA073F81A678C1400B217AA /* AppDelegate.h */,
+				7EA073F91A678C1400B217AA /* AppDelegate.m */,
+				7EA073FB1A678C1400B217AA /* ViewController.h */,
+				7EA073FC1A678C1400B217AA /* ViewController.m */,
+				7EA073FE1A678C1400B217AA /* Main.storyboard */,
+				7EA074011A678C1400B217AA /* Images.xcassets */,
+				7EA074031A678C1400B217AA /* LaunchScreen.xib */,
+				7EA073F41A678C1400B217AA /* Supporting Files */,
+			);
+			path = HealthTalk;
+			sourceTree = "<group>";
+		};
+		7EA073F41A678C1400B217AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EA073F51A678C1400B217AA /* Info.plist */,
+				7EA073F61A678C1400B217AA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EA0740D1A678C1400B217AA /* HealthTalkTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EA074101A678C1400B217AA /* HealthTalkTests.m */,
+				7EA0740E1A678C1400B217AA /* Supporting Files */,
+			);
+			path = HealthTalkTests;
+			sourceTree = "<group>";
+		};
+		7EA0740E1A678C1400B217AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EA0740F1A678C1400B217AA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7EA073F01A678C1400B217AA /* HealthTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EA074141A678C1400B217AA /* Build configuration list for PBXNativeTarget "HealthTalk" */;
+			buildPhases = (
+				7EA073ED1A678C1400B217AA /* Sources */,
+				7EA073EE1A678C1400B217AA /* Frameworks */,
+				7EA073EF1A678C1400B217AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HealthTalk;
+			productName = HealthTalk;
+			productReference = 7EA073F11A678C1400B217AA /* HealthTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7EA074091A678C1400B217AA /* HealthTalkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EA074171A678C1400B217AA /* Build configuration list for PBXNativeTarget "HealthTalkTests" */;
+			buildPhases = (
+				7EA074061A678C1400B217AA /* Sources */,
+				7EA074071A678C1400B217AA /* Frameworks */,
+				7EA074081A678C1400B217AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EA0740C1A678C1400B217AA /* PBXTargetDependency */,
+			);
+			name = HealthTalkTests;
+			productName = HealthTalkTests;
+			productReference = 7EA0740A1A678C1400B217AA /* HealthTalkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EA073E91A678C1400B217AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = ThomasApps;
+				TargetAttributes = {
+					7EA073F01A678C1400B217AA = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					7EA074091A678C1400B217AA = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 7EA073F01A678C1400B217AA;
+					};
+				};
+			};
+			buildConfigurationList = 7EA073EC1A678C1400B217AA /* Build configuration list for PBXProject "HealthTalk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7EA073E81A678C1400B217AA;
+			productRefGroup = 7EA073F21A678C1400B217AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EA073F01A678C1400B217AA /* HealthTalk */,
+				7EA074091A678C1400B217AA /* HealthTalkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EA073EF1A678C1400B217AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EA074001A678C1400B217AA /* Main.storyboard in Resources */,
+				7EA074051A678C1400B217AA /* LaunchScreen.xib in Resources */,
+				7EA074021A678C1400B217AA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EA074081A678C1400B217AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EA073ED1A678C1400B217AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EA073FD1A678C1400B217AA /* ViewController.m in Sources */,
+				7EA073FA1A678C1400B217AA /* AppDelegate.m in Sources */,
+				7EA073F71A678C1400B217AA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EA074061A678C1400B217AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EA074111A678C1400B217AA /* HealthTalkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7EA0740C1A678C1400B217AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EA073F01A678C1400B217AA /* HealthTalk */;
+			targetProxy = 7EA0740B1A678C1400B217AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7EA073FE1A678C1400B217AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EA073FF1A678C1400B217AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7EA074031A678C1400B217AA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7EA074041A678C1400B217AA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7EA074121A678C1400B217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7EA074131A678C1400B217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EA074151A678C1400B217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HealthTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7EA074161A678C1400B217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HealthTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7EA074181A678C1400B217AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HealthTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthTalk.app/HealthTalk";
+			};
+			name = Debug;
+		};
+		7EA074191A678C1400B217AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HealthTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthTalk.app/HealthTalk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EA073EC1A678C1400B217AA /* Build configuration list for PBXProject "HealthTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EA074121A678C1400B217AA /* Debug */,
+				7EA074131A678C1400B217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EA074141A678C1400B217AA /* Build configuration list for PBXNativeTarget "HealthTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EA074151A678C1400B217AA /* Debug */,
+				7EA074161A678C1400B217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7EA074171A678C1400B217AA /* Build configuration list for PBXNativeTarget "HealthTalkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EA074181A678C1400B217AA /* Debug */,
+				7EA074191A678C1400B217AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EA073E91A678C1400B217AA /* Project object */;
+}
