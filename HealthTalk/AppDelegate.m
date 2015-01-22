@@ -7,18 +7,70 @@
 //
 
 #import "AppDelegate.h"
+#import "TalkViewController.h"
+
+@import HealthKit;
 
 @interface AppDelegate ()
 
+@property (nonatomic, readwrite) HKHealthStore *healthStore;
+
 @end
+
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    if ([HKHealthStore isHealthDataAvailable]) {
+        self.healthStore = [[HKHealthStore alloc]init];
+        NSSet *writeDataTypes = [self dataTypesToWrite];
+        
+        [self.healthStore requestAuthorizationToShareTypes:writeDataTypes readTypes:nil completion:^(BOOL success, NSError *error) {
+            
+            if (!success) {
+                NSLog(@"User denied access to write health data");
+                return;
+            }
+            
+            [self setUpHealthStoreForViewController];
+            
+        }];
+    }
+    
     return YES;
 }
+
+- (NSSet *)dataTypesToWrite {
+    HKQuantityType *weightType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+    HKQuantityType *heightType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
+    // perhaps cyclcing distance
+    
+    HKQuantityType *carbohydratesType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCarbohydrates];
+    HKQuantityType *proteinType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryProtein];
+    HKQuantityType *sugarType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySugar];
+    HKQuantityType *fatType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFatTotal];
+    HKQuantityType *dietCaloriesType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed];
+    
+    HKQuantityType *bacType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodAlcoholContent];
+    HKQuantityType *fallsType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierNumberOfTimesFallen];
+    
+    HKQuantityType *heartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    HKQuantityType *respiratoryRate = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
+    HKQuantityType *bodyTempType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
+    
+    
+    return [NSSet setWithObjects:weightType, heightType, carbohydratesType, proteinType, sugarType, fatType, dietCaloriesType, nil];
+}
+
+- (void)setUpHealthStoreForViewController {
+    
+    TalkViewController *viewController = (TalkViewController *)[self.window rootViewController];
+    viewController.healthStore = self.healthStore;
+    
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
