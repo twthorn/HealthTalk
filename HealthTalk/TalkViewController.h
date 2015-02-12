@@ -18,6 +18,7 @@
 @property (nonatomic) HKHealthStore *healthStore;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+
 @property (weak, nonatomic) IBOutlet UIButton *talkButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 

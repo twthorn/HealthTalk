@@ -54,14 +54,13 @@
     HKQuantityType *dietCaloriesType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed];
     
     HKQuantityType *bacType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodAlcoholContent];
-    HKQuantityType *fallsType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierNumberOfTimesFallen];
     
     HKQuantityType *heartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
     HKQuantityType *respiratoryRate = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
     HKQuantityType *bodyTempType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
     
     
-    return [NSSet setWithObjects:weightType, heightType, carbohydratesType, proteinType, sugarType, fatType, dietCaloriesType, nil];
+    return [NSSet setWithObjects:weightType, heightType, carbohydratesType, proteinType, sugarType, fatType, dietCaloriesType, bacType, heartRateType, respiratoryRate, bodyTempType, nil];
 }
 
 - (void)setUpHealthStoreForViewController {
