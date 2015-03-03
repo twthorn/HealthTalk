@@ -16,22 +16,22 @@
 
 @interface TalkViewController () {
     
-//    NSString *lmValuesPath;
-//    NSString *lmTypesPath;
-//    
-//    NSString *typesDicPath;
-//    NSString *valuesDicPath;
-//    
-//    BOOL usingLMValues;
-//    
-//    NSString *typeHypothesis;
-//    NSString *valueHypothesis;
+    //    NSString *lmValuesPath;
+    //    NSString *lmTypesPath;
+    //
+    //    NSString *typesDicPath;
+    //    NSString *valuesDicPath;
+    //
+    //    BOOL usingLMValues;
+    //
+    //    NSString *typeHypothesis;
+    //    NSString *valueHypothesis;
     
-//    NSDictionary *typesDic;
+    //    NSDictionary *typesDic;
     
-//    NSString *quantityTypeString;
+    //    NSString *quantityTypeString;
     
-//    NSDictionary *categoryDic;
+    //    NSDictionary *categoryDic;
     
     //olf stuff above
     
@@ -71,70 +71,70 @@
     [super viewDidLoad];
     
     categoryIdentifiers = [NSArray arrayWithObjects:
-                             @"HKQuantityTypeIdentifierBodyMass",
-                             @"HKQuantityTypeIdentifierHeight",
-                             @"HKQuantityTypeIdentifierDietaryCarbohydrates",
-                             @"HKQuantityTypeIdentifierDietaryProtein",
-                             @"HKQuantityTypeIdentifierDietarySugar",
-                             @"HKQuantityTypeIdentifierDietaryFatTotal",
-                             @"HKQuantityTypeIdentifierDietaryEnergyConsumed",
-                             @"HKQuantityTypeIdentifierBloodAlcoholContent",
-                             @"HKQuantityTypeIdentifierHeartRate",
-                             @"HKQuantityTypeIdentifierRespiratoryRate",
-                             @"HKQuantityTypeIdentifierBodyTemperature", nil];
+                           @"HKQuantityTypeIdentifierBodyMass",
+                           @"HKQuantityTypeIdentifierHeight",
+                           @"HKQuantityTypeIdentifierDietaryCarbohydrates",
+                           @"HKQuantityTypeIdentifierDietaryProtein",
+                           @"HKQuantityTypeIdentifierDietarySugar",
+                           @"HKQuantityTypeIdentifierDietaryFatTotal",
+                           @"HKQuantityTypeIdentifierDietaryEnergyConsumed",
+                           @"HKQuantityTypeIdentifierBloodAlcoholContent",
+                           @"HKQuantityTypeIdentifierHeartRate",
+                           @"HKQuantityTypeIdentifierRespiratoryRate",
+                           @"HKQuantityTypeIdentifierBodyTemperature", nil];
     
     categoryWordQs = [NSArray arrayWithObjects:
-                               @[@"WEIGHT", @"WEIGH", @"WEIGHED", @"POUNDS"],
-                               @[@"HEIGHT", @"INCHES", @"FOOT", @"FEET", @"TALL"],
-                               @[@"CARBOHYDRATES", @"CARBS"],
-                               @[@"PROTEIN"],
-                               @[@"SUGAR"],
-                               @[@"FAT"],
-                               @[@"CALORIES"],
-                               @[@"B.A.C.", @"BLOOD", @"ALCOHOL", @"CONTENT"],
-                               @[@"PULSE", @"HEART", @"BEATS"],
-                               @[@"RESPIRATORY", @"BREATHS"],
-                               @[@"TEMPERATURE", @"BODY", @"FAHRENHEIT", @"DEGREES"], nil];
+                      @[@"WEIGHT", @"WEIGH", @"WEIGHED", @"POUNDS"],
+                      @[@"HEIGHT", @"INCHES", @"FOOT", @"FEET", @"TALL"],
+                      @[@"CARBOHYDRATES", @"CARBS"],
+                      @[@"PROTEIN"],
+                      @[@"SUGAR"],
+                      @[@"FAT"],
+                      @[@"CALORIES"],
+                      @[@"B.A.C.", @"BLOOD", @"ALCOHOL", @"CONTENT"],
+                      @[@"PULSE", @"HEART", @"BEATS"],
+                      @[@"RESPIRATORY", @"BREATHS"],
+                      @[@"TEMPERATURE", @"BODY", @"FAHRENHEIT", @"DEGREES"], nil];
     
     categoryDefaultUnits = [NSArray arrayWithObjects:
-                                 @"lb",
-                                 @"in",
-                                 @"g",
-                                 @"g",
-                                 @"g",
-                                 @"g",
-                                 @"cal",
-                                 @"",
-                                 @"count/min",
-                                 @"count/min",
-                                 @"degF",
-                                 nil];
+                            @"lb",
+                            @"in",
+                            @"g",
+                            @"g",
+                            @"g",
+                            @"g",
+                            @"cal",
+                            @"",
+                            @"count/min",
+                            @"count/min",
+                            @"degF",
+                            nil];
     
     categoryDisplayNames = [NSArray arrayWithObjects:
-                                  @"Weight",
-                                  @"Height",
-                                  @"Carbohydrates",
-                                  @"Protein",
-                                  @"Sugar",
-                                  @"Fat",
-                                  @"Calories",
-                                  @"Blood Alcohol Content",
-                                  @"Heart Rate",
-                                  @"Respiratory Rate",
-                                  @"Body Temperature", nil];
+                            @"Weight",
+                            @"Height",
+                            @"Carbohydrates",
+                            @"Protein",
+                            @"Sugar",
+                            @"Fat",
+                            @"Calories",
+                            @"Blood Alcohol Content",
+                            @"Heart Rate",
+                            @"Respiratory Rate",
+                            @"Body Temperature", nil];
     
     categoryDisplayUnits = [NSArray arrayWithObjects:
-                                 @"lbs",
-                                 @"inches",
-                                 @"g",
-                                 @"g",
-                                 @"g",
-                                 @"g",
-                                 @"cal",
-                                 @"%",
-                                 @"bpm",
-                                 @"breaths/min",
-                                 @"°F", nil];
+                            @"lbs",
+                            @"inches",
+                            @"g",
+                            @"g",
+                            @"g",
+                            @"g",
+                            @"cal",
+                            @"%",
+                            @"bpm",
+                            @"breaths/min",
+                            @"°F", nil];
     
     valueWordQsOnes = [NSArray arrayWithObjects:@"POINT", @"ZERO", @"OH", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", nil];
     
@@ -150,17 +150,17 @@
      - each number word adds one character to the string
      
      ... _thou_ _hund_ _tens_ _ones_ . _tenths_ _hundredths_ _thousandths_ ...
-    - every number direct string equivalent ("." "0" "10" "16" "20" "2")
-    = next number is
+     - every number direct string equivalent ("." "0" "10" "16" "20" "2")
+     = next number is
      - appended if place value is greater or equal
-    for each number
+     for each number
      have two things
      - this number word
-        - value equivalent
-        - place
+     - value equivalent
+     - place
      - current number string
-        - length
-        - 
+     - length
+     -
      
      start:
      - ones
@@ -170,9 +170,9 @@
      ones
      - !
      - ones...
-        - tens
-            - !
-            -
+     - tens
+     - !
+     -
      
      */
     
@@ -181,47 +181,47 @@
     // dictionary with the digits places left (0, 0, 1, 2)
     // count the numbers that fill before a point
     // if the count doesn't equal then add a zero for the remainder
-        // doesn't work need to differentiate between "one thousand and four" and "one thousand four hundred"
+    // doesn't work need to differentiate between "one thousand and four" and "one thousand four hundred"
     
     // each number has a value
-        // thousand = 3, four = 1, hundred = 2, forty = 2
+    // thousand = 3, four = 1, hundred = 2, forty = 2
     // once a number is deteceted (one hundred) subtract the next numbers value from it (and one) so (2 - 1) the remainder, if positive, is the number of zeroes added before the next number (2 -1 = 1) so add 1 zero, then add the one (101)
     // number detected (one) next number (thousand) means (1 - 3 = -2) no zeroes added just put the 1, check next numbers
-            // forty means (3 - 2) = 1, so 104
-                // two means (2 - 1) = 1 so 1040 BUT IT SHOULD BE 1042
+    // forty means (3 - 2) = 1, so 104
+    // two means (2 - 1) = 1 so 1040 BUT IT SHOULD BE 1042
     
     // to fix the system, add another case: if the remainder is greater than the value of the next number, then add a zero, but if it is equal then add that number
     // so first number "one" remember it, next number "thousand" subtract (1 - 3 = -2) , is -2 greater than 3, no, so append "1" to value string
-        // next number "forty" so (3 - 2 = 1) append "0"
-            // next "four" so (2 - 1 = 1) append
-        // next number "four" so (3 - 1 = 2) is 2 > 1, yes, append
+    // next number "forty" so (3 - 2 = 1) append "0"
+    // next "four" so (2 - 1 = 1) append
+    // next number "four" so (3 - 1 = 2) is 2 > 1, yes, append
     // next number
     
     
     
     // thousand = 3, hundred = 2, forty = 1, eleven = 0, one = 0
     // "one", append 1
-        // "thousand" -> 0 - 3 = -3, neg no zeroes added
-            // nothing -> 3 - 0 = 3, append 3 "0"'s
-            // five -> 3 - 0 = 3, append
-        // "forty" -> 0 - 1 = -1, neg no zeroes added, append 4
-            // nothing -> 1 - 0 = 1, positive, append 1 zero
+    // "thousand" -> 0 - 3 = -3, neg no zeroes added
+    // nothing -> 3 - 0 = 3, append 3 "0"'s
+    // five -> 3 - 0 = 3, append
+    // "forty" -> 0 - 1 = -1, neg no zeroes added, append 4
+    // nothing -> 1 - 0 = 1, positive, append 1 zero
     
     
     
     // thousand = 3, hundred = 2, forty = 1, eleven = 2, one = 1, nothing = 0
     // "one", append 1
-        // "thousand" -> var = 3
-            // nothing -> append var = 3 "0"'s
-                // output: 1000
-            // five -> var - 1 = 2, append 2 "0"'s, append this number = 5
-                // output: 1005
-        // "hundred" -> var = 2
-            // forty -> var - 1 = 1, append 4
-                // nothing -> append 1 "0"
-        // "forty" -> var = 2, append 4
-            // "five" -> var - 1 = 1
-            // nothing -> append var = 2 zeroes
+    // "thousand" -> var = 3
+    // nothing -> append var = 3 "0"'s
+    // output: 1000
+    // five -> var - 1 = 2, append 2 "0"'s, append this number = 5
+    // output: 1005
+    // "hundred" -> var = 2
+    // forty -> var - 1 = 1, append 4
+    // nothing -> append 1 "0"
+    // "forty" -> var = 2, append 4
+    // "five" -> var - 1 = 1
+    // nothing -> append var = 2 zeroes
     
     // var subtraction is relative to the length of the string
     // one, "1", thousand, 4 -1 = 3, 1000
@@ -263,40 +263,40 @@
     
     
     
-//    OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
+    //    OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
     
-//    NSArray *phoneticTypes = [NSArray arrayWithObjects:@"WEIGHT", @"HEIGHT", nil];
-//    NSArray *phoneticValues = [NSArray arrayWithObjects:@"ZERO", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", @"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", @"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"POINT", @"AND", nil];
+    //    NSArray *phoneticTypes = [NSArray arrayWithObjects:@"WEIGHT", @"HEIGHT", nil];
+    //    NSArray *phoneticValues = [NSArray arrayWithObjects:@"ZERO", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", @"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", @"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"POINT", @"AND", nil];
     
-//    NSArray *rawTypes = [NSArray arrayWithObjects:@"HKQuantityTypeIdentifierBodyMass", @"HKQuantityTypeIdentifierHeight", nil];
-//    NSArray *rawValues = [NSArray arrayWithObjects:@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20, @30, @40, @50, @60, @70, @80, @90, @100, @0.0, @0, nil];
+    //    NSArray *rawTypes = [NSArray arrayWithObjects:@"HKQuantityTypeIdentifierBodyMass", @"HKQuantityTypeIdentifierHeight", nil];
+    //    NSArray *rawValues = [NSArray arrayWithObjects:@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20, @30, @40, @50, @60, @70, @80, @90, @100, @0.0, @0, nil];
     
-//    NSDictionary *typesDict = [NSDictionary dictionaryWithObjects:rawTypes forKeys:phoneticTypes];
-//    NSDictionary *valuesDict = [NSDictionary dictionaryWithObjects:rawValues forKeys:phoneticValues];
+    //    NSDictionary *typesDict = [NSDictionary dictionaryWithObjects:rawTypes forKeys:phoneticTypes];
+    //    NSDictionary *valuesDict = [NSDictionary dictionaryWithObjects:rawValues forKeys:phoneticValues];
     
-//    NSString *typesName = @"Types";
-//    NSString *valuesName = @"Values";
-//    
-//    NSError *typesErr = [lmGenerator generateLanguageModelFromArray:phoneticTypes withFilesNamed:typesName forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
-//    NSError *valuesErr = [lmGenerator generateLanguageModelFromArray:phoneticValues withFilesNamed:valuesName forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
+    //    NSString *typesName = @"Types";
+    //    NSString *valuesName = @"Values";
+    //
+    //    NSError *typesErr = [lmGenerator generateLanguageModelFromArray:phoneticTypes withFilesNamed:typesName forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
+    //    NSError *valuesErr = [lmGenerator generateLanguageModelFromArray:phoneticValues withFilesNamed:valuesName forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
     
     // Eventually remove these lines
     //NSString *lmPath = nil;
     //NSString *dicPath = nil;
     
-//    if(typesErr == nil & valuesErr == nil) {
-//        
-//        lmTypesPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"Types"];
-//        lmValuesPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"Values"];
-//        
-//        typesDicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"Types"];
-//        valuesDicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"Values"];
-//        
-//    } else {
-//        
-//        NSLog(@"Error: %@ \n Error: %@",[typesErr localizedDescription], [valuesErr localizedDescription]);
-//    
-//    }
+    //    if(typesErr == nil & valuesErr == nil) {
+    //
+    //        lmTypesPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"Types"];
+    //        lmValuesPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"Values"];
+    //
+    //        typesDicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"Types"];
+    //        valuesDicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"Values"];
+    //
+    //    } else {
+    //
+    //        NSLog(@"Error: %@ \n Error: %@",[typesErr localizedDescription], [valuesErr localizedDescription]);
+    //
+    //    }
     
 }
 
@@ -304,7 +304,7 @@
     
     NSMutableString *instructionString = [NSMutableString stringWithString:@""];
     
-    [instructionString appendString:@"Now you can tell your iPhone about yourself and your health. View the data and visualizations by pressing Home and tapping the Apple Health app. \n\nWhen you press Talk, speak a category and a quantity. For example, you can say \"Weight one forty five point six\" \n\nThese are the possible categories (and units):\n"];
+    [instructionString appendString:@"Now you can tell your iPhone about yourself and your health. View the data and visualizations by pressing Home and tapping the Apple Health app. \n\nWhen you press Talk, speak a category and a quantity. For example, you can say \"Weight one six seven point six\" \n\nThese are the possible categories (and units):\n"];
     
     for (int i = 0; i < [categoryDisplayNames count]; i++) {
         
@@ -344,8 +344,8 @@
     [self.valueLabel setText:@""];
     [self.typeLabel setText:@""];
     [self.saveButton setEnabled:NO];
-
-
+    
+    
 }
 - (IBAction)saveButtonTapped:(id)sender {
     
@@ -367,7 +367,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 UIAlertView *failureAlert = [[UIAlertView alloc]initWithTitle:@"Failed Save" message:@"Your data could not be saved to the Apple Health app. Make sure that HealthTalk has permission to save Health data in Settings -> Privacy -> Health." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
+                
                 [failureAlert show];
                 
             });
@@ -387,7 +387,7 @@
             
         }
     }];
-
+    
 }
 
 - (void) didReceiveMemoryWarning {
@@ -433,7 +433,7 @@
     
     // NO MORE CORPUS FILE , INSTEAD CREATE CATEGORY ARRAYS IN VIEW DID LOAD AND MAKE THEM FROM THEM COMBINED PLUS THE OTHER FILLER WORDS
     
-//    NSArray *phoneticValues = [NSArray arrayWithObjects:@"ZERO", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", @"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", @"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"POINT", @"AND", nil];
+    //    NSArray *phoneticValues = [NSArray arrayWithObjects:@"ZERO", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", @"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", @"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"POINT", @"AND", nil];
     
     //
     
@@ -513,25 +513,25 @@
     
     
     
-//    if (([valueStringArray count] != 0) & categoryDetected) {
-//        
-//        // Sets value label in function
-//        [self valueStringArrayToDouble:valueStringArray];
-//        [self.typeLabel setText:[categoryDisplayNames objectAtIndex:(NSUInteger)categoryIndex]];
-//        [self.saveButton setEnabled:YES];
-//        
-//    } else if ([valueStringArray count] == 0) {
-//        
-//        [self.valueLabel setText:@"?"];
-//        [self.typeLabel setText:[categoryDisplayNames objectAtIndex:(NSUInteger)categoryIndex]];
-//        // alert view
-//        
-//    } else if (!categoryDetected) {
-//        
-//        [self.typeLabel setText:@"?"];
-//        [self valueStringArrayToDouble:valueStringArray];
-//        
-//    }
+    //    if (([valueStringArray count] != 0) & categoryDetected) {
+    //
+    //        // Sets value label in function
+    //        [self valueStringArrayToDouble:valueStringArray];
+    //        [self.typeLabel setText:[categoryDisplayNames objectAtIndex:(NSUInteger)categoryIndex]];
+    //        [self.saveButton setEnabled:YES];
+    //
+    //    } else if ([valueStringArray count] == 0) {
+    //
+    //        [self.valueLabel setText:@"?"];
+    //        [self.typeLabel setText:[categoryDisplayNames objectAtIndex:(NSUInteger)categoryIndex]];
+    //        // alert view
+    //
+    //    } else if (!categoryDetected) {
+    //
+    //        [self.typeLabel setText:@"?"];
+    //        [self valueStringArrayToDouble:valueStringArray];
+    //
+    //    }
     
 }
 
