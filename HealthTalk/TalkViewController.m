@@ -16,27 +16,6 @@
 
 @interface TalkViewController () {
     
-    //    NSString *lmValuesPath;
-    //    NSString *lmTypesPath;
-    //
-    //    NSString *typesDicPath;
-    //    NSString *valuesDicPath;
-    //
-    //    BOOL usingLMValues;
-    //
-    //    NSString *typeHypothesis;
-    //    NSString *valueHypothesis;
-    
-    //    NSDictionary *typesDic;
-    
-    //    NSString *quantityTypeString;
-    
-    //    NSDictionary *categoryDic;
-    
-    //olf stuff above
-    
-    
-    
     // Open ears
     NSString *lmPath;
     NSString *dicPath;
@@ -55,12 +34,19 @@
     // Value Arrays
     NSArray *valueWordQsOnes;
     NSArray *valueStringsOnes;
-    NSDictionary *valueStringsOnesDic;
+    
+    NSArray *valueWordQsTeens;
+    NSArray *valueStringsTeens;
+    
+    NSArray *valueWordQsTens;
+    NSArray *valueStringsTens;
+    
+    NSArray *valueWordQsAll;
+    NSArray *valueStringsAll;
     
     // Value results
     NSMutableArray *valueStringArray;
     double valueDouble;
-    
 }
 
 @end
@@ -140,101 +126,28 @@
     
     valueStringsOnes = [NSArray arrayWithObjects:@".", @"0", @"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
     
-    NSArray *valueStringTwos = [NSArray arrayWithObjects:@"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", nil];
+    valueWordQsTeens = [NSArray arrayWithObjects:@"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", nil];
     
-    NSArray *valueStringTens = [NSArray arrayWithObjects:@"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", nil];
+    valueStringsTeens = [NSArray arrayWithObjects:@"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", nil];
     
-    /* combo types
-     
-     cases:
-     - each number word adds one character to the string
-     
-     ... _thou_ _hund_ _tens_ _ones_ . _tenths_ _hundredths_ _thousandths_ ...
-     - every number direct string equivalent ("." "0" "10" "16" "20" "2")
-     = next number is
-     - appended if place value is greater or equal
-     for each number
-     have two things
-     - this number word
-     - value equivalent
-     - place
-     - current number string
-     - length
-     -
-     
-     start:
-     - ones
-     
-     thousands hundred
-     
-     ones
-     - !
-     - ones...
-     - tens
-     - !
-     -
-     
-     */
+    valueWordQsTens = [NSArray arrayWithObjects:@"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"THOUSAND", nil];
     
-    // array with every number value (one, eleven, forty, hundred)
-    // dictionary with their first digit value (1, 11, 4, 1)
-    // dictionary with the digits places left (0, 0, 1, 2)
-    // count the numbers that fill before a point
-    // if the count doesn't equal then add a zero for the remainder
-    // doesn't work need to differentiate between "one thousand and four" and "one thousand four hundred"
-    
-    // each number has a value
-    // thousand = 3, four = 1, hundred = 2, forty = 2
-    // once a number is deteceted (one hundred) subtract the next numbers value from it (and one) so (2 - 1) the remainder, if positive, is the number of zeroes added before the next number (2 -1 = 1) so add 1 zero, then add the one (101)
-    // number detected (one) next number (thousand) means (1 - 3 = -2) no zeroes added just put the 1, check next numbers
-    // forty means (3 - 2) = 1, so 104
-    // two means (2 - 1) = 1 so 1040 BUT IT SHOULD BE 1042
-    
-    // to fix the system, add another case: if the remainder is greater than the value of the next number, then add a zero, but if it is equal then add that number
-    // so first number "one" remember it, next number "thousand" subtract (1 - 3 = -2) , is -2 greater than 3, no, so append "1" to value string
-    // next number "forty" so (3 - 2 = 1) append "0"
-    // next "four" so (2 - 1 = 1) append
-    // next number "four" so (3 - 1 = 2) is 2 > 1, yes, append
-    // next number
-    
-    
-    
-    // thousand = 3, hundred = 2, forty = 1, eleven = 0, one = 0
-    // "one", append 1
-    // "thousand" -> 0 - 3 = -3, neg no zeroes added
-    // nothing -> 3 - 0 = 3, append 3 "0"'s
-    // five -> 3 - 0 = 3, append
-    // "forty" -> 0 - 1 = -1, neg no zeroes added, append 4
-    // nothing -> 1 - 0 = 1, positive, append 1 zero
-    
-    
-    
-    // thousand = 3, hundred = 2, forty = 1, eleven = 2, one = 1, nothing = 0
-    // "one", append 1
-    // "thousand" -> var = 3
-    // nothing -> append var = 3 "0"'s
-    // output: 1000
-    // five -> var - 1 = 2, append 2 "0"'s, append this number = 5
-    // output: 1005
-    // "hundred" -> var = 2
-    // forty -> var - 1 = 1, append 4
-    // nothing -> append 1 "0"
-    // "forty" -> var = 2, append 4
-    // "five" -> var - 1 = 1
-    // nothing -> append var = 2 zeroes
-    
-    // var subtraction is relative to the length of the string
-    // one, "1", thousand, 4 -1 = 3, 1000
-    // one, "1", thousand 4 -1 = 3, "four", 3 - 1 = 2, 2 0's then 4, 1004
-    // one "1", forty, 2-1, 1, 1 0's 140
-    // one "1", hundred 3-1 = 2
-    // forty "4", five 1 - 1 = 0, 45
-    // one "1", forty "4"
-    
-    valueStringsOnesDic = [NSDictionary dictionaryWithObjects:valueStringsOnes forKeys:valueWordQsOnes];
+    valueStringsTens = [NSArray arrayWithObjects:@"20", @"30", @"40", @"50", @"60", @"70", @"80", @"90", @"100", @"1000", nil];
     
     valueStringArray = [[NSMutableArray alloc]init]; // populated with the current spoken values
     
+    valueWordQsAll = [NSArray arrayWithArray:valueWordQsOnes];
+    valueWordQsAll = [valueWordQsAll arrayByAddingObjectsFromArray:valueWordQsTeens];
+    valueWordQsAll = [valueWordQsAll arrayByAddingObjectsFromArray:valueWordQsTens];
+    
+    NSLog(@"Value word q's all: %@", valueWordQsAll);
+    
+    valueStringsAll = [NSArray arrayWithArray:valueStringsOnes];
+    valueStringsAll = [valueStringsAll arrayByAddingObjectsFromArray:valueStringsTeens];
+    valueStringsAll = [valueStringsAll arrayByAddingObjectsFromArray:valueStringsTens];
+    
+    
+    valueStringArray = [[NSMutableArray alloc]init]; // populated with the current spoken values
     
     OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
     
@@ -256,47 +169,24 @@
     self.openEarsEventsObserver = [[OEEventsObserver alloc] init];
     [self.openEarsEventsObserver setDelegate:self];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:YES];
     
-    
-    
-    
-    
-    
-    //    OELanguageModelGenerator *lmGenerator = [[OELanguageModelGenerator alloc] init];
-    
-    //    NSArray *phoneticTypes = [NSArray arrayWithObjects:@"WEIGHT", @"HEIGHT", nil];
-    //    NSArray *phoneticValues = [NSArray arrayWithObjects:@"ZERO", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", @"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", @"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"POINT", @"AND", nil];
-    
-    //    NSArray *rawTypes = [NSArray arrayWithObjects:@"HKQuantityTypeIdentifierBodyMass", @"HKQuantityTypeIdentifierHeight", nil];
-    //    NSArray *rawValues = [NSArray arrayWithObjects:@0, @1, @2, @3, @4, @5, @6, @7, @8, @9, @10, @11, @12, @13, @14, @15, @16, @17, @18, @19, @20, @30, @40, @50, @60, @70, @80, @90, @100, @0.0, @0, nil];
-    
-    //    NSDictionary *typesDict = [NSDictionary dictionaryWithObjects:rawTypes forKeys:phoneticTypes];
-    //    NSDictionary *valuesDict = [NSDictionary dictionaryWithObjects:rawValues forKeys:phoneticValues];
-    
-    //    NSString *typesName = @"Types";
-    //    NSString *valuesName = @"Values";
-    //
-    //    NSError *typesErr = [lmGenerator generateLanguageModelFromArray:phoneticTypes withFilesNamed:typesName forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
-    //    NSError *valuesErr = [lmGenerator generateLanguageModelFromArray:phoneticValues withFilesNamed:valuesName forAcousticModelAtPath:[OEAcousticModel pathToModel:@"AcousticModelEnglish"]];
-    
-    // Eventually remove these lines
-    //NSString *lmPath = nil;
-    //NSString *dicPath = nil;
-    
-    //    if(typesErr == nil & valuesErr == nil) {
-    //
-    //        lmTypesPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"Types"];
-    //        lmValuesPath = [lmGenerator pathToSuccessfullyGeneratedLanguageModelWithRequestedName:@"Values"];
-    //
-    //        typesDicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"Types"];
-    //        valuesDicPath = [lmGenerator pathToSuccessfullyGeneratedDictionaryWithRequestedName:@"Values"];
-    //
-    //    } else {
-    //
-    //        NSLog(@"Error: %@ \n Error: %@",[typesErr localizedDescription], [valuesErr localizedDescription]);
-    //
-    //    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        NSLog(@"already launched");
+        
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self helpButtonTapped:self];
+    }
     
 }
 
@@ -304,7 +194,7 @@
     
     NSMutableString *instructionString = [NSMutableString stringWithString:@""];
     
-    [instructionString appendString:@"Now you can tell your iPhone about yourself and your health. View the data and visualizations by pressing Home and tapping the Apple Health app. \n\nWhen you press Talk, speak a category and a quantity. For example, you can say \"Weight one six seven point six\" \n\nThese are the possible categories (and units):\n"];
+    [instructionString appendString:@"Now you can tell your iPhone about yourself and your health. HealthTalk uses HealthKit to save and store your information. \n\nWhen you press talk, be sure to say a category and quantity. For example, you can say, \"weight one seventy six point three.\" \n\nSupported Categories (Units):\n"];
     
     for (int i = 0; i < [categoryDisplayNames count]; i++) {
         
@@ -315,7 +205,7 @@
         
     }
     
-    [instructionString appendString:@"\nFor quantity, only speak the digits:\nzero\none\ntwo\nthree\nfour\nfive\nsix\nseven\neight\nnine \n\n You can add a decimal point for accuracy too"];
+    [instructionString appendString:@"\nIf HealthTalk is having problems, minimize background noise. Try annunciating with quick pauses in between words. For the quantity, try speaking in only digits (like a phone number). For the category, make sure it is listed above and use the default units."];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Welcome to HealthTalk"
                                                                              message:instructionString
@@ -347,6 +237,7 @@
     
     
 }
+
 - (IBAction)saveButtonTapped:(id)sender {
     
     // some check to make sure this won't throw an error
@@ -366,7 +257,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                UIAlertView *failureAlert = [[UIAlertView alloc]initWithTitle:@"Failed Save" message:@"Your data could not be saved to the Apple Health app. Make sure that HealthTalk has permission to save Health data in Settings -> Privacy -> Health." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *failureAlert = [[UIAlertView alloc]initWithTitle:@"Failed Save" message:@"Your data could not be saved to the Health app. Make sure that HealthTalk has permission to save Health data in Settings under Privacy" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [failureAlert show];
                 
@@ -379,7 +270,7 @@
                 [self.typeLabel setText:@""];
                 [self.saveButton setEnabled:NO];
                 
-                UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:@"Successful Save!" message:@"You can view, edit, or delete your saved Health data in the Apple Health app. Apple Health also creates graphs of your data over time." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:@"Successful Save!" message:@"Data has been saved to the Health app." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 
                 [successAlert show];
                 
@@ -395,52 +286,129 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
--(void) valueStringArrayToDouble:(NSMutableArray *)stringArray {
+- (void) valueStringArrayToDouble:(NSMutableArray *)stringArray {
     
-    NSMutableString *valueNumberString = [NSMutableString stringWithString:@""];
+    NSMutableString *cumulativeValueString = [NSMutableString stringWithString:@""];
+    double cumulativeValue;
+    cumulativeValue = 0;
+    
+    bool ifWasTens = false;
     
     for (NSString *word in valueStringArray) {
         
-        NSString *isMatch = [valueStringsOnesDic objectForKey:word];
+        NSUInteger indexMatch = [valueWordQsAll indexOfObject:word];
         
-        if (isMatch) {
+        if (indexMatch != NSNotFound) {
             
-            NSLog(@"Matched value: %@", word);
+            NSLog(@"This Value: %@", word);
             
-            [valueNumberString appendString:isMatch];
+            NSString *thisValueString = [valueStringsAll objectAtIndex:indexMatch];
+            
+            if (ifWasTens) {
+                
+                NSLog(@"Adding %@ to %@", thisValueString, cumulativeValueString);
+                
+                // "20", "5"
+                // "100", "5"
+                // "100", "20" -> 120, "5" -> 125
+                
+                cumulativeValue = cumulativeValue + [thisValueString doubleValue];
+                
+                // Update value string with string from value
+                cumulativeValueString = [NSMutableString stringWithFormat:@"%f", cumulativeValue];
+                
+                NSArray *splitStringArray = [cumulativeValueString componentsSeparatedByString:@"."];
+                cumulativeValueString = [NSMutableString stringWithString:[splitStringArray objectAtIndex:0]];
+                
+                
+            } else if ([valueStringsTens containsObject:thisValueString] && [cumulativeValueString length] == 4 && [thisValueString length] == 3 && ifWasTens == false) {
+                
+                NSLog(@"Multiplying & Adding %@", thisValueString);
+                
+                // Enables thousands followed by a ones followed by hundreds to work
+                
+                NSString *lastNum = [cumulativeValueString substringFromIndex:[cumulativeValueString length] - 1];
+                
+                NSLog(@"last num: %@", lastNum);
+                
+                double lastValue = [lastNum doubleValue];
+                
+                NSLog(@"last val: %f", lastValue);
+                
+                cumulativeValue = cumulativeValue - lastValue + (lastValue * [thisValueString doubleValue]);
+                
+                NSLog(@"Resulting value is: %f", cumulativeValue);
+                
+                // Update value string with string from value
+                cumulativeValueString = [NSMutableString stringWithFormat:@"%f", cumulativeValue];
+                
+                NSArray *splitStringArray = [cumulativeValueString componentsSeparatedByString:@"."];
+                cumulativeValueString = [NSMutableString stringWithString:[splitStringArray objectAtIndex:0]];
+              
+                
+            } else if ([valueStringsTens containsObject:thisValueString] && [cumulativeValueString length] != 0 && [thisValueString length] > 2) {
+                
+                NSLog(@"Multiplying %@", thisValueString);
+                
+                cumulativeValue = cumulativeValue * [thisValueString doubleValue];
+                
+                // Update value string with string from value
+                cumulativeValueString = [NSMutableString stringWithFormat:@"%f", cumulativeValue];
+                
+                NSArray *splitStringArray = [cumulativeValueString componentsSeparatedByString:@"."];
+                cumulativeValueString = [NSMutableString stringWithString:[splitStringArray objectAtIndex:0]];
+                
+                
+            } else {
+                
+                // "." anything
+                // digit sequences
+                
+                NSLog(@"Appending %@ to %@", thisValueString, cumulativeValueString);
+                
+                [cumulativeValueString appendString:thisValueString];
+                
+                // Update the actual value with the string's converted value
+                cumulativeValue = [cumulativeValueString doubleValue];
+                
+            }
+            
+            
+            // Check if the last value was a tens group one
+            if ([valueStringsTens containsObject:thisValueString]) {
+                
+                NSLog(@"Is Tens %@", thisValueString);
+                
+                ifWasTens = true;
+                
+            } else {
+                
+                ifWasTens = false;
+                
+            }
+            
             
         }
+        
+        // update our cumulative strings / values, bc one has been changed
         
     }
     
     // Append space before unit
-    [valueNumberString appendString:@" "];
+    [cumulativeValueString appendString:@" "];
     
     // Append unit if the category was detected
     if (categoryDetected) {
-        [valueNumberString appendString:[categoryDisplayUnits objectAtIndex:categoryIndex]];
+        [cumulativeValueString appendString:[categoryDisplayUnits objectAtIndex:categoryIndex]];
     }
     
-    [self.valueLabel setText:valueNumberString];
+    [self.valueLabel setText:cumulativeValueString];
     
-    valueDouble = [valueNumberString doubleValue];
+    valueDouble = [cumulativeValueString doubleValue];
     
 }
 
 - (void) processHypothesis:(NSString *)hypothesis {
-    
-    // NO MORE CORPUS FILE , INSTEAD CREATE CATEGORY ARRAYS IN VIEW DID LOAD AND MAKE THEM FROM THEM COMBINED PLUS THE OTHER FILLER WORDS
-    
-    //    NSArray *phoneticValues = [NSArray arrayWithObjects:@"ZERO", @"ONE", @"TWO", @"THREE", @"FOUR", @"FIVE", @"SIX", @"SEVEN", @"EIGHT", @"NINE", @"TEN", @"ELEVEN", @"TWELVE", @"THIRTEEN", @"FOURTEEN", @"FIFTEEN", @"SIXTEEN", @"SEVENTEEN", @"EIGHTEEN", @"NINETEEN", @"TWENTY", @"THIRTY", @"FORTY", @"FIFTY", @"SIXTY", @"SEVENTY", @"EIGHTY", @"NINETY", @"HUNDRED", @"POINT", @"AND", nil];
-    
-    //
-    
-    //quantityTypeString = nil;
-    
-    
-    
     
     // Reset the global variables used
     categoryIndex = 0;
@@ -474,8 +442,8 @@
             
         }
         
-        // Value detection
-        if ([valueWordQsOnes containsObject:word]) {
+        // Value word detection
+        if ([valueWordQsAll containsObject:word]) {
             
             [valueStringArray addObject:word];
             
@@ -510,83 +478,7 @@
         [self.typeLabel setText:@"?"];
         
     }
-    
-    
-    
-    //    if (([valueStringArray count] != 0) & categoryDetected) {
-    //
-    //        // Sets value label in function
-    //        [self valueStringArrayToDouble:valueStringArray];
-    //        [self.typeLabel setText:[categoryDisplayNames objectAtIndex:(NSUInteger)categoryIndex]];
-    //        [self.saveButton setEnabled:YES];
-    //
-    //    } else if ([valueStringArray count] == 0) {
-    //
-    //        [self.valueLabel setText:@"?"];
-    //        [self.typeLabel setText:[categoryDisplayNames objectAtIndex:(NSUInteger)categoryIndex]];
-    //        // alert view
-    //
-    //    } else if (!categoryDetected) {
-    //
-    //        [self.typeLabel setText:@"?"];
-    //        [self valueStringArrayToDouble:valueStringArray];
-    //
-    //    }
-    
 }
-
-
-
-
-
-//
-//    [self valueStringArrayToNumber:valueStringArray];
-
-
-//            if ([[categoryDic objectForKey:key]containsString:word]) {
-//
-//                NSLog(@"%@", word);
-//
-//            }
-
-// pass numberString to a function that figures out the likely val
-
-//    if (!usingLMValues) {
-//        typeHypothesis = hypothesis;
-//        usingLMValues = TRUE;
-//    } else {
-//        valueHypothesis = hypothesis;
-//    }
-
-
-
-
-//    if (!usingLMValues) {
-//
-//        [[OEPocketsphinxController sharedInstance]changeLanguageModelToFile:lmValuesPath withDictionary:valuesDicPath];
-//
-//    } else {
-//
-//        [[OEPocketsphinxController sharedInstance]stopListening];
-//
-//    }
-
-
-
-//    NSLog(@"%@", typeHypothesis);
-//    NSLog(@"%@", valueHypothesis);
-//
-//    if (typeHypothesis != nil & valueHypothesis != nil) {
-//        NSLog(@"Non null %@, %@", typeHypothesis, valueHypothesis);
-//
-//        self.typeLabel.text = typeHypothesis;
-//        self.valueLabel.text = valueHypothesis;
-//    }
-//
-//    [self.talkButton setEnabled:YES];
-
-
-
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
     NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);

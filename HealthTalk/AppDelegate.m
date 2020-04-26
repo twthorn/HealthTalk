@@ -34,6 +34,8 @@
                 return;
             }
             
+            NSLog(@"Setting up HealthStore VC");
+            
             [self setUpHealthStoreForViewController];
             
         }];
